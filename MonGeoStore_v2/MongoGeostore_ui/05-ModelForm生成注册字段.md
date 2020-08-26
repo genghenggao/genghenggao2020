@@ -116,3 +116,40 @@ python manage.py migrate
    访问：http://127.0.0.1:8000/send/register/
 
 ![](IMG/henggao_2020-05-22_10-48-45.png)
+
+8. 手机号正则表达式
+
+   在models.py中的设置，views.py进行设置，如果有则覆盖，没有则生成
+
+- views.py	
+
+```
+from django.core.validators import RegexValidator
+
+mobile_phone = forms.CharField(label='手机号',validators=[RegexValidator(r'^(1[3|4|5|6|7|8|9]\d{9}$','手机格式错误'),])
+   
+```
+
+![](IMG/henggao_2020-05-23_15-03-42.png)
+
+9.密码
+
+- 密码密文
+
+- views.py
+
+  ```
+      password = forms.CharField(label='密码', widget = forms.PasswordInput())
+  ```
+
+10.添加验证码
+
+```
+code = forms.CharField(label='验证码')
+```
+
+![](IMG/henggao_2020-05-23_15-39-27.png)
+
+查看
+
+![](IMG/henggao_2020-05-23_15-40-28.png)
